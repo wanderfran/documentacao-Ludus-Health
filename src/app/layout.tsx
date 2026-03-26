@@ -1,18 +1,12 @@
 import type { Metadata } from 'next';
-import { DM_Sans, Playfair_Display } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { LayoutWrapper } from '@/components/LayoutWrapper';
 import { getDepartments } from '@/lib/content';
 
-const dmSans = DM_Sans({
-  subsets: ['latin'],
+const midcentDisco = localFont({
+  src: '../../public/fonts/MidcentDisco-Regular.ttf',
   variable: '--font-sans',
-  display: 'swap',
-});
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-serif',
   display: 'swap',
 });
 
@@ -33,7 +27,7 @@ export default function RootLayout({
   }));
 
   return (
-    <html lang="pt-BR" className={`${dmSans.variable} ${playfair.variable}`}>
+    <html lang="pt-BR" className={midcentDisco.variable}>
       <head>
         <meta name="theme-color" content="#ffffff" />
       </head>
