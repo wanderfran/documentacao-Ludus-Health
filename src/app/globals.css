@@ -203,3 +203,127 @@ h1, h2, h3 {
 .shadow-card-hover {
   box-shadow: var(--shadow-card-hover);
 }
+
+/* ============================================================
+   PROSE STYLES (for markdown content)
+   ============================================================ */
+
+.prose {
+  color: hsl(220, 20%, 25%);
+  line-height: 1.75;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  color: hsl(220, 20%, 15%);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  margin-top: 2em;
+  margin-bottom: 0.75em;
+}
+
+.prose h1 { font-size: 2rem; }
+.prose h2 { font-size: 1.5rem; }
+.prose h3 { font-size: 1.25rem; }
+.prose h4 { font-size: 1.125rem; }
+
+.prose p {
+  margin-bottom: 1.25em;
+}
+
+.prose a {
+  color: hsl(38, 55%, 45%);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: hsl(38, 55%, 35%);
+}
+
+.prose strong {
+  color: hsl(220, 20%, 15%);
+  font-weight: 600;
+}
+
+.prose ul,
+.prose ol {
+  margin-bottom: 1.25em;
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose ul li::marker {
+  color: hsl(38, 55%, 50%);
+}
+
+.prose ol li::marker {
+  color: hsl(38, 55%, 50%);
+  font-weight: 600;
+}
+
+.prose blockquote {
+  border-left: 3px solid hsl(38, 55%, 50%);
+  padding-left: 1em;
+  margin-left: 0;
+  margin-bottom: 1.25em;
+  color: hsl(220, 10%, 40%);
+  font-style: italic;
+}
+
+.prose code {
+  background: hsl(220, 14%, 96%);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  color: hsl(220, 20%, 25%);
+}
+
+.prose pre {
+  background: hsl(220, 20%, 15%);
+  color: hsl(210, 20%, 90%);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 1.25em;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid hsl(220, 13%, 91%);
+  margin: 2em 0;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25em;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid hsl(220, 13%, 91%);
+  padding: 0.75em 1em;
+  text-align: left;
+}
+
+.prose th {
+  background: hsl(220, 14%, 96%);
+  font-weight: 600;
+  color: hsl(220, 20%, 15%);
+}
+
+.prose tr:nth-child(even) {
+  background: hsl(220, 14%, 98%);
+}
