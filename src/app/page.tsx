@@ -7,23 +7,6 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="sticky top-0 bg-white/80 backdrop-blur-sm border-b border-gray-100 z-40">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="size-10 rounded-xl bg-gradient-to-br from-amber-500 to-teal-500 flex items-center justify-center text-white font-bold text-lg shadow-lg">
-              L
-            </div>
-            <span className="font-serif text-xl font-bold text-gray-900">
-              Ludus Health
-            </span>
-          </Link>
-          <span className="text-sm text-gray-500 hidden sm:block">
-            Documentacao Interna
-          </span>
-        </div>
-      </header>
-
       <main className="max-w-5xl mx-auto px-6 py-12">
         {/* Hero Section */}
         <section className="text-center mb-16 animate-fade-in">
