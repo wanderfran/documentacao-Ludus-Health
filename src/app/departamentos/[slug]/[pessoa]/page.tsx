@@ -24,15 +24,14 @@ export default async function PersonPage({
     <main className="pt-8 lg:pt-4">
       {/* Breadcrumb */}
       <nav
-        className="flex items-center gap-2 text-sm mb-6 flex-wrap animate-fade-in"
-        style={{ color: '#7b849b' }}
+        className="flex items-center gap-2 text-sm mb-6 flex-wrap animate-fade-in text-gray-500"
         aria-label="Breadcrumb"
       >
-        <a href="/" className="transition-colors hover:text-[#eef0f4]">Inicio</a>
+        <a href="/" className="transition-colors hover:text-gray-900">Inicio</a>
         <span>/</span>
-        <a href={`/departamentos/${slug}`} className="transition-colors hover:text-[#eef0f4]">{department.nome}</a>
+        <a href={`/departamentos/${slug}`} className="transition-colors hover:text-gray-900">{department.nome}</a>
         <span>/</span>
-        <span style={{ color: '#d4a853' }}>{person.nome}</span>
+        <span className="text-amber-600">{person.nome}</span>
       </nav>
 
       {/* Profile Header */}
@@ -40,63 +39,40 @@ export default async function PersonPage({
         className="flex items-start gap-5 mb-8 animate-slide-up"
         style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}
       >
-        {/* Avatar with gradient border */}
+        {/* Avatar */}
         <div
-          className="size-16 rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0"
-          style={{
-            background: person.lider
-              ? 'linear-gradient(135deg, #d4a853, #2dd4bf)'
-              : '#141a2e',
-            color: person.lider ? '#0a0f1c' : '#7b849b',
-            border: person.lider ? 'none' : '2px solid #1e2845',
-          }}
+          className={`size-16 rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0 ${
+            person.lider
+              ? 'bg-gradient-to-br from-amber-500 to-teal-500 text-white'
+              : 'bg-gray-100 text-gray-600 border-2 border-gray-200'
+          }`}
         >
           {person.nome.charAt(0)}
         </div>
         <div>
-          <h1
-            className="text-3xl font-bold font-serif"
-            style={{ color: '#eef0f4', textWrap: 'balance' }}
-          >
+          <h1 className="text-3xl font-bold font-serif text-gray-900">
             {person.nome}
           </h1>
-          <p className="text-lg" style={{ color: '#7b849b' }}>{person.cargo}</p>
+          <p className="text-lg text-gray-600">{person.cargo}</p>
           <div className="flex items-center gap-3 mt-2 flex-wrap">
             <a
               href={`/departamentos/${slug}`}
-              className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-sm transition-colors hover:border-[rgba(212,168,83,0.4)]"
-              style={{
-                background: '#141a2e',
-                border: '1px solid #1e2845',
-                color: '#7b849b',
-              }}
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-sm transition-colors bg-gray-100 border border-gray-200 text-gray-600 hover:border-amber-300"
             >
               {department.nome}
             </a>
             {person.lider && (
-              <span
-                className="px-2.5 py-1 text-xs rounded-full font-medium"
-                style={{
-                  background: 'rgba(212, 168, 83, 0.15)',
-                  color: '#d4a853',
-                }}
-              >
+              <span className="px-2.5 py-1 text-xs rounded-full font-medium bg-amber-100 text-amber-700">
                 Lider
               </span>
             )}
             {person.status === 'ativo' ? (
-              <span className="flex items-center gap-1.5 text-sm" style={{ color: '#2dd4bf' }}>
-                <span className="size-2 rounded-full" style={{ background: '#2dd4bf' }} />
+              <span className="flex items-center gap-1.5 text-sm text-teal-600">
+                <span className="size-2 rounded-full bg-teal-500" />
                 Ativo
               </span>
             ) : (
-              <span
-                className="px-2.5 py-1 text-xs rounded-full"
-                style={{
-                  background: 'rgba(212, 168, 83, 0.15)',
-                  color: '#d4a853',
-                }}
-              >
+              <span className="px-2.5 py-1 text-xs rounded-full bg-amber-100 text-amber-700">
                 {person.status}
               </span>
             )}
@@ -113,10 +89,9 @@ export default async function PersonPage({
         >
           <h2
             id="process-heading"
-            className="text-xl font-bold font-serif mb-4 flex items-center gap-2"
-            style={{ color: '#eef0f4', textWrap: 'balance' }}
+            className="text-xl font-bold font-serif mb-4 flex items-center gap-2 text-gray-900"
           >
-            <svg className="size-5" style={{ color: '#d4a853' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="size-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
             </svg>
             Processos por Frequencia
@@ -140,14 +115,13 @@ export default async function PersonPage({
 
       {/* Full Content */}
       <section
-        className="mt-8 pt-8 animate-fade-in"
+        className="mt-8 pt-8 animate-fade-in border-t border-gray-200"
         style={{
-          borderTop: '1px solid #1e2845',
           animationDelay: '350ms',
           animationFillMode: 'backwards',
         }}
       >
-        <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+        <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: contentHtml }} />
       </section>
     </main>
   );

@@ -17,13 +17,10 @@ export default function OnboardingFuncionarioPage() {
   if (!data) {
     return (
       <main className="pt-8 lg:pt-4">
-        <h1
-          className="text-3xl font-bold font-serif mb-4"
-          style={{ color: '#eef0f4', textWrap: 'balance' }}
-        >
+        <h1 className="text-3xl font-bold font-serif mb-4 text-gray-900">
           Onboarding de Funcionario
         </h1>
-        <p style={{ color: '#7b849b' }}>Conteudo ainda nao disponivel.</p>
+        <p className="text-gray-600">Conteudo ainda nao disponivel.</p>
       </main>
     );
   }
@@ -34,13 +31,12 @@ export default function OnboardingFuncionarioPage() {
     <main className="pt-8 lg:pt-4">
       {/* Breadcrumb */}
       <nav
-        className="flex items-center gap-2 text-sm mb-6 animate-fade-in"
-        style={{ color: '#7b849b' }}
+        className="flex items-center gap-2 text-sm mb-6 animate-fade-in text-gray-500"
         aria-label="Breadcrumb"
       >
-        <a href="/" className="transition-colors hover:text-[#eef0f4]">Inicio</a>
+        <a href="/" className="transition-colors hover:text-gray-900">Inicio</a>
         <span>/</span>
-        <span style={{ color: '#d4a853' }}>Onboarding Funcionario</span>
+        <span className="text-amber-600">Onboarding Funcionario</span>
       </nav>
 
       {/* Header */}
@@ -48,13 +44,10 @@ export default function OnboardingFuncionarioPage() {
         className="mb-10 animate-slide-up"
         style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}
       >
-        <h1
-          className="text-3xl lg:text-4xl font-bold font-serif mb-2"
-          style={{ color: '#eef0f4', textWrap: 'balance' }}
-        >
+        <h1 className="text-3xl lg:text-4xl font-bold font-serif mb-2 text-gray-900">
           {data.titulo}
         </h1>
-        <p className="text-lg" style={{ color: '#7b849b' }}>{data.descricao}</p>
+        <p className="text-lg text-gray-600">{data.descricao}</p>
       </section>
 
       {/* Role Selector */}
@@ -64,8 +57,8 @@ export default function OnboardingFuncionarioPage() {
       >
         <h2
           id="role-heading"
-          className="text-xl font-bold font-serif mb-4 animate-slide-up"
-          style={{ color: '#eef0f4', textWrap: 'balance', animationDelay: '100ms', animationFillMode: 'backwards' }}
+          className="text-xl font-bold font-serif mb-4 animate-slide-up text-gray-900"
+          style={{ animationDelay: '100ms', animationFillMode: 'backwards' }}
         >
           Selecione o cargo
         </h2>
@@ -76,19 +69,15 @@ export default function OnboardingFuncionarioPage() {
               <a
                 key={cargo.slug}
                 href={`/onboarding-funcionario/${cargo.slug}`}
-                className="group rounded-xl p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-[rgba(212,168,83,0.4)] hover:shadow-[0_0_40px_-12px_rgba(212,168,83,0.15)] animate-slide-up glass-card"
+                className="group rounded-xl p-5 transition-all duration-300 hover:-translate-y-0.5 animate-slide-up bg-white border border-gray-200 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-50"
                 style={{
                   animationDelay: `${150 + idx * 70}ms`,
                   animationFillMode: 'backwards',
                 }}
               >
-                <div
-                  className="size-10 rounded-lg flex items-center justify-center mb-3"
-                  style={{ background: 'rgba(212, 168, 83, 0.12)' }}
-                >
+                <div className="size-10 rounded-lg flex items-center justify-center mb-3 bg-amber-50">
                   <svg
-                    className="size-5"
-                    style={{ color: '#d4a853' }}
+                    className="size-5 text-amber-600"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -97,13 +86,10 @@ export default function OnboardingFuncionarioPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
                   </svg>
                 </div>
-                <h3
-                  className="font-semibold transition-colors group-hover:text-[#d4a853]"
-                  style={{ color: '#eef0f4' }}
-                >
+                <h3 className="font-semibold transition-colors group-hover:text-amber-600 text-gray-900">
                   {cargo.nome}
                 </h3>
-                <p className="text-sm mt-1" style={{ color: '#7b849b' }}>
+                <p className="text-sm mt-1 text-gray-500">
                   Ver guia de onboarding
                 </p>
               </a>
@@ -115,14 +101,13 @@ export default function OnboardingFuncionarioPage() {
       {/* General Content */}
       {contentHtml && (
         <section
-          className="mt-8 pt-8 animate-fade-in"
+          className="mt-8 pt-8 animate-fade-in border-t border-gray-200"
           style={{
-            borderTop: '1px solid #1e2845',
             animationDelay: '400ms',
             animationFillMode: 'backwards',
           }}
         >
-          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+          <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: contentHtml }} />
         </section>
       )}
     </main>

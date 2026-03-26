@@ -25,36 +25,26 @@ export default async function DepartmentPage({
     <main className="pt-8 lg:pt-4">
       {/* Breadcrumb */}
       <nav
-        className="flex items-center gap-2 text-sm mb-6 animate-fade-in"
-        style={{ color: '#7b849b' }}
+        className="flex items-center gap-2 text-sm mb-6 animate-fade-in text-gray-500"
         aria-label="Breadcrumb"
       >
-        <a href="/" className="transition-colors hover:text-[#eef0f4]">Inicio</a>
+        <a href="/" className="transition-colors hover:text-gray-900">Inicio</a>
         <span>/</span>
-        <span style={{ color: '#7b849b' }}>Departamentos</span>
+        <span>Departamentos</span>
         <span>/</span>
-        <span style={{ color: '#d4a853' }}>{department.nome}</span>
+        <span className="text-amber-600">{department.nome}</span>
       </nav>
 
       {/* Header */}
       <section className="mb-8 animate-slide-up" style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}>
-        <h1
-          className="text-3xl lg:text-4xl font-bold font-serif mb-2"
-          style={{ color: '#eef0f4', textWrap: 'balance' }}
-        >
+        <h1 className="text-3xl lg:text-4xl font-bold font-serif mb-2 text-gray-900">
           {department.nome}
         </h1>
-        <p style={{ color: '#7b849b' }}>{department.descricao}</p>
+        <p className="text-gray-600">{department.descricao}</p>
         {department.lider && (
-          <div
-            className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-lg border"
-            style={{
-              background: 'rgba(212, 168, 83, 0.1)',
-              borderColor: 'rgba(212, 168, 83, 0.25)',
-            }}
-          >
-            <span className="text-sm" style={{ color: '#7b849b' }}>Lider:</span>
-            <span className="text-sm font-medium" style={{ color: '#d4a853' }}>{department.lider}</span>
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-200 bg-amber-50">
+            <span className="text-sm text-gray-600">Lider:</span>
+            <span className="text-sm font-medium text-amber-600">{department.lider}</span>
           </div>
         )}
       </section>
@@ -68,21 +58,14 @@ export default async function DepartmentPage({
         >
           <h2
             id="org-heading"
-            className="text-xl font-bold font-serif mb-6 flex items-center gap-2"
-            style={{ color: '#eef0f4', textWrap: 'balance' }}
+            className="text-xl font-bold font-serif mb-6 flex items-center gap-2 text-gray-900"
           >
-            <svg className="size-5" style={{ color: '#d4a853' }} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="size-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
             </svg>
             Organograma
           </h2>
-          <div
-            className="rounded-xl p-8 overflow-x-auto"
-            style={{
-              background: 'rgba(20, 26, 46, 0.5)',
-              border: '1px solid #1e2845',
-            }}
-          >
+          <div className="rounded-xl p-8 overflow-x-auto bg-gray-50 border border-gray-200">
             <HierarchyTree leader={leader} members={members} departmentSlug={slug} />
           </div>
         </section>
@@ -97,8 +80,7 @@ export default async function DepartmentPage({
         >
           <h2
             id="team-heading"
-            className="text-xl font-bold font-serif mb-6"
-            style={{ color: '#eef0f4', textWrap: 'balance' }}
+            className="text-xl font-bold font-serif mb-6 text-gray-900"
           >
             Equipe
           </h2>
@@ -131,7 +113,7 @@ export default async function DepartmentPage({
       {/* Content */}
       {contentHtml && (
         <section
-          className="prose prose-invert max-w-none animate-fade-in"
+          className="prose max-w-none animate-fade-in"
           style={{ animationDelay: '400ms', animationFillMode: 'backwards' }}
         >
           <div dangerouslySetInnerHTML={{ __html: contentHtml }} />

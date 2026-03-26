@@ -7,13 +7,12 @@ export default function SquadsPage() {
     <main className="pt-8 lg:pt-4">
       {/* Breadcrumb */}
       <nav
-        className="flex items-center gap-2 text-sm mb-6 animate-fade-in"
-        style={{ color: '#7b849b' }}
+        className="flex items-center gap-2 text-sm mb-6 animate-fade-in text-gray-500"
         aria-label="Breadcrumb"
       >
-        <a href="/" className="transition-colors hover:text-[#eef0f4]">Inicio</a>
+        <a href="/" className="transition-colors hover:text-gray-900">Inicio</a>
         <span>/</span>
-        <span style={{ color: '#d4a853' }}>Squads</span>
+        <span className="text-amber-600">Squads</span>
       </nav>
 
       {/* Header */}
@@ -21,13 +20,10 @@ export default function SquadsPage() {
         className="mb-10 animate-slide-up"
         style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}
       >
-        <h1
-          className="text-3xl lg:text-4xl font-bold font-serif mb-2"
-          style={{ color: '#eef0f4', textWrap: 'balance' }}
-        >
+        <h1 className="text-3xl lg:text-4xl font-bold font-serif mb-2 text-gray-900">
           Squads
         </h1>
-        <p className="text-lg" style={{ color: '#7b849b' }}>
+        <p className="text-lg text-gray-600">
           Times multidisciplinares da Ludus Health
         </p>
       </section>
@@ -38,7 +34,7 @@ export default function SquadsPage() {
           <a
             key={squad.slug}
             href={`/squads/${squad.slug}`}
-            className="group rounded-xl p-6 transition-all duration-300 hover:-translate-y-0.5 animate-slide-up glass-card hover:border-[rgba(212,168,83,0.4)] hover:shadow-[0_0_40px_-12px_rgba(212,168,83,0.15)]"
+            className="group rounded-xl p-6 transition-all duration-300 hover:-translate-y-0.5 animate-slide-up bg-white border border-gray-200 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-50"
             style={{
               animationDelay: `${100 + idx * 80}ms`,
               animationFillMode: 'backwards',
@@ -46,17 +42,13 @@ export default function SquadsPage() {
           >
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h2
-                  className="text-xl font-bold font-serif transition-colors group-hover:text-[#d4a853]"
-                  style={{ color: '#eef0f4', textWrap: 'balance' }}
-                >
+                <h2 className="text-xl font-bold font-serif transition-colors group-hover:text-amber-600 text-gray-900">
                   {squad.nome}
                 </h2>
-                <p className="mt-1" style={{ color: '#7b849b' }}>{squad.descricao}</p>
+                <p className="mt-1 text-gray-600">{squad.descricao}</p>
               </div>
               <svg
-                className="size-5 shrink-0 mt-1 transition-all group-hover:translate-x-1 group-hover:text-[#d4a853]"
-                style={{ color: '#7b849b' }}
+                className="size-5 shrink-0 mt-1 transition-all group-hover:translate-x-1 text-gray-400 group-hover:text-amber-600"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -66,34 +58,28 @@ export default function SquadsPage() {
             </div>
 
             <div className="flex items-center gap-3 mb-3">
-              <span className="text-xs" style={{ color: '#7b849b' }}>Lider:</span>
-              <span className="text-sm font-medium" style={{ color: '#d4a853' }}>{squad.lider}</span>
+              <span className="text-xs text-gray-500">Lider:</span>
+              <span className="text-sm font-medium text-amber-600">{squad.lider}</span>
             </div>
 
             <div className="flex flex-wrap gap-2">
               {squad.membros.map((m, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg"
-                  style={{
-                    background: 'rgba(10, 15, 28, 0.5)',
-                    border: '1px solid rgba(30, 40, 69, 0.5)',
-                  }}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-50 border border-gray-100"
                 >
                   <div
-                    className="size-6 rounded-full flex items-center justify-center text-xs font-medium"
-                    style={{
-                      background: m.nome === squad.lider
-                        ? 'linear-gradient(135deg, #d4a853, #2dd4bf)'
-                        : '#1e2845',
-                      color: m.nome === squad.lider ? '#0a0f1c' : '#7b849b',
-                    }}
+                    className={`size-6 rounded-full flex items-center justify-center text-xs font-medium ${
+                      m.nome === squad.lider
+                        ? 'bg-gradient-to-br from-amber-500 to-teal-500 text-white'
+                        : 'bg-gray-200 text-gray-600'
+                    }`}
                   >
                     {m.nome.charAt(0)}
                   </div>
                   <div>
-                    <span className="text-sm" style={{ color: '#eef0f4' }}>{m.nome}</span>
-                    <span className="text-xs ml-1" style={{ color: '#7b849b' }}>({m.cargo})</span>
+                    <span className="text-sm text-gray-900">{m.nome}</span>
+                    <span className="text-xs ml-1 text-gray-500">({m.cargo})</span>
                   </div>
                 </div>
               ))}
@@ -104,7 +90,7 @@ export default function SquadsPage() {
 
       {squads.length === 0 && (
         <div className="text-center py-12">
-          <p style={{ color: '#7b849b' }}>Nenhum squad encontrado.</p>
+          <p className="text-gray-600">Nenhum squad encontrado.</p>
         </div>
       )}
     </main>

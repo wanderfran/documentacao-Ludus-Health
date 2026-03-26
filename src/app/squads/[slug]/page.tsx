@@ -20,15 +20,14 @@ export default async function SquadDetailPage({
     <main className="pt-8 lg:pt-4">
       {/* Breadcrumb */}
       <nav
-        className="flex items-center gap-2 text-sm mb-6 flex-wrap animate-fade-in"
-        style={{ color: '#7b849b' }}
+        className="flex items-center gap-2 text-sm mb-6 flex-wrap animate-fade-in text-gray-500"
         aria-label="Breadcrumb"
       >
-        <a href="/" className="transition-colors hover:text-[#eef0f4]">Inicio</a>
+        <a href="/" className="transition-colors hover:text-gray-900">Inicio</a>
         <span>/</span>
-        <a href="/squads" className="transition-colors hover:text-[#eef0f4]">Squads</a>
+        <a href="/squads" className="transition-colors hover:text-gray-900">Squads</a>
         <span>/</span>
-        <span style={{ color: '#d4a853' }}>{squad.nome}</span>
+        <span className="text-amber-600">{squad.nome}</span>
       </nav>
 
       {/* Header */}
@@ -36,35 +35,29 @@ export default async function SquadDetailPage({
         className="mb-8 animate-slide-up"
         style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}
       >
-        <h1
-          className="text-3xl lg:text-4xl font-bold font-serif mb-2"
-          style={{ color: '#eef0f4', textWrap: 'balance' }}
-        >
+        <h1 className="text-3xl lg:text-4xl font-bold font-serif mb-2 text-gray-900">
           {squad.nome}
         </h1>
-        <p className="text-lg" style={{ color: '#7b849b' }}>{squad.descricao}</p>
+        <p className="text-lg text-gray-600">{squad.descricao}</p>
       </section>
 
       {/* Leader + Members */}
       <section
-        className="mb-8 rounded-xl p-6 animate-slide-up"
+        className="mb-8 rounded-xl p-6 animate-slide-up bg-white border border-gray-200"
         style={{
-          background: 'rgba(20, 26, 46, 0.5)',
-          border: '1px solid #1e2845',
           animationDelay: '150ms',
           animationFillMode: 'backwards',
         }}
         aria-labelledby="members-heading"
       >
         <div className="flex items-center gap-3 mb-4">
-          <span className="text-sm" style={{ color: '#7b849b' }}>Lider do Squad:</span>
-          <span className="text-sm font-semibold" style={{ color: '#d4a853' }}>{squad.lider}</span>
+          <span className="text-sm text-gray-500">Lider do Squad:</span>
+          <span className="text-sm font-semibold text-amber-600">{squad.lider}</span>
         </div>
 
         <h3
           id="members-heading"
-          className="text-sm font-semibold uppercase tracking-wider mb-3"
-          style={{ color: '#7b849b' }}
+          className="text-sm font-semibold uppercase tracking-wider mb-3 text-gray-500"
         >
           Membros
         </h3>
@@ -72,37 +65,27 @@ export default async function SquadDetailPage({
           {squad.membros.map((m, i) => (
             <div
               key={i}
-              className="flex items-center gap-3 p-3 rounded-lg animate-slide-up"
+              className="flex items-center gap-3 p-3 rounded-lg animate-slide-up bg-gray-50 border border-gray-100"
               style={{
-                background: 'rgba(10, 15, 28, 0.5)',
-                border: '1px solid rgba(30, 40, 69, 0.5)',
                 animationDelay: `${200 + i * 60}ms`,
                 animationFillMode: 'backwards',
               }}
             >
               <div
-                className="size-10 rounded-full flex items-center justify-center text-sm font-bold"
-                style={{
-                  background: m.nome === squad.lider
-                    ? 'linear-gradient(135deg, #d4a853, #2dd4bf)'
-                    : '#1e2845',
-                  color: m.nome === squad.lider ? '#0a0f1c' : '#7b849b',
-                }}
+                className={`size-10 rounded-full flex items-center justify-center text-sm font-bold ${
+                  m.nome === squad.lider
+                    ? 'bg-gradient-to-br from-amber-500 to-teal-500 text-white'
+                    : 'bg-gray-200 text-gray-600'
+                }`}
               >
                 {m.nome.charAt(0)}
               </div>
               <div>
-                <p className="font-medium text-sm" style={{ color: '#eef0f4' }}>{m.nome}</p>
-                <p className="text-xs" style={{ color: '#7b849b' }}>{m.cargo}</p>
+                <p className="font-medium text-sm text-gray-900">{m.nome}</p>
+                <p className="text-xs text-gray-500">{m.cargo}</p>
               </div>
               {m.nome === squad.lider && (
-                <span
-                  className="ml-auto px-2 py-0.5 text-xs rounded-full"
-                  style={{
-                    background: 'rgba(212, 168, 83, 0.15)',
-                    color: '#d4a853',
-                  }}
-                >
+                <span className="ml-auto px-2 py-0.5 text-xs rounded-full bg-amber-100 text-amber-700">
                   Lider
                 </span>
               )}
@@ -117,23 +100,21 @@ export default async function SquadDetailPage({
           className="animate-fade-in"
           style={{ animationDelay: '350ms', animationFillMode: 'backwards' }}
         >
-          <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+          <div className="prose max-w-none" dangerouslySetInnerHTML={{ __html: contentHtml }} />
         </section>
       )}
 
       {/* Back link */}
       <div
-        className="mt-8 pt-6 animate-fade-in"
+        className="mt-8 pt-6 animate-fade-in border-t border-gray-200"
         style={{
-          borderTop: '1px solid #1e2845',
           animationDelay: '400ms',
           animationFillMode: 'backwards',
         }}
       >
         <a
           href="/squads"
-          className="inline-flex items-center gap-2 text-sm transition-colors hover:text-[#d4a853]"
-          style={{ color: '#7b849b' }}
+          className="inline-flex items-center gap-2 text-sm transition-colors text-gray-500 hover:text-amber-600"
         >
           <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
