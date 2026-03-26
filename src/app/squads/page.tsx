@@ -12,7 +12,7 @@ export default function SquadsPage() {
       >
         <a href="/" className="transition-colors hover:text-gray-900">Inicio</a>
         <span>/</span>
-        <span className="text-amber-600">Squads</span>
+        <span className="text-emerald-700">Squads</span>
       </nav>
 
       {/* Header */}
@@ -34,7 +34,7 @@ export default function SquadsPage() {
           <a
             key={squad.slug}
             href={`/squads/${squad.slug}`}
-            className="group rounded-xl p-6 transition-all duration-300 hover:-translate-y-0.5 animate-slide-up bg-white border border-gray-200 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-50"
+            className="group rounded-xl p-6 transition-all duration-300 hover:-translate-y-0.5 animate-slide-up bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-50"
             style={{
               animationDelay: `${100 + idx * 80}ms`,
               animationFillMode: 'backwards',
@@ -42,13 +42,13 @@ export default function SquadsPage() {
           >
             <div className="flex items-start justify-between mb-4">
               <div>
-                <h2 className="text-xl font-bold font-serif transition-colors group-hover:text-amber-600 text-gray-900">
+                <h2 className="text-xl font-bold font-serif transition-colors group-hover:text-emerald-700 text-gray-900">
                   {squad.nome}
                 </h2>
                 <p className="mt-1 text-gray-600">{squad.descricao}</p>
               </div>
               <svg
-                className="size-5 shrink-0 mt-1 transition-all group-hover:translate-x-1 text-gray-400 group-hover:text-amber-600"
+                className="size-5 shrink-0 mt-1 transition-all group-hover:translate-x-1 text-gray-400 group-hover:text-emerald-700"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -59,7 +59,7 @@ export default function SquadsPage() {
 
             <div className="flex items-center gap-3 mb-3">
               <span className="text-xs text-gray-500">Lider:</span>
-              <span className="text-sm font-medium text-amber-600">{squad.lider}</span>
+              <span className="text-sm font-medium text-emerald-700">{squad.lider}</span>
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -71,7 +71,7 @@ export default function SquadsPage() {
                   <div
                     className={`size-6 rounded-full flex items-center justify-center text-xs font-medium ${
                       m.nome === squad.lider
-                        ? 'bg-gradient-to-br from-amber-500 to-teal-500 text-white'
+                        ? 'bg-gradient-to-br from-emerald-500 to-emerald-500 text-white'
                         : 'bg-gray-200 text-gray-600'
                     }`}
                   >

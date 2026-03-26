@@ -127,7 +127,7 @@ function processInline(text: string): string {
   // Italic
   result = result.replace(/\*(.+?)\*/g, '<em>$1</em>');
   // Links
-  result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-amber-600 hover:text-amber-700 underline">$1</a>');
+  result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-emerald-700 hover:text-emerald-800 underline">$1</a>');
   // Em dash
   result = result.replace(/ — /g, ' &mdash; ');
   return result;

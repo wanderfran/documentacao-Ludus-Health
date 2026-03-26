@@ -13,10 +13,10 @@ const frequencyConfig: Record<string, {
   icon: React.ReactNode;
 }> = {
   'Diário': {
-    text: 'text-teal-600',
-    bg: 'bg-teal-50',
-    border: 'border-teal-200',
-    dot: 'bg-teal-500',
+    text: 'text-emerald-700',
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-200',
+    dot: 'bg-emerald-500',
     icon: (
       <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -24,10 +24,10 @@ const frequencyConfig: Record<string, {
     ),
   },
   'Semanal': {
-    text: 'text-amber-600',
-    bg: 'bg-amber-50',
-    border: 'border-amber-200',
-    dot: 'bg-amber-500',
+    text: 'text-emerald-700',
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-200',
+    dot: 'bg-emerald-500',
     icon: (
       <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />

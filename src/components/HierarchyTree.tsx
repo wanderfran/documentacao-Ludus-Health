@@ -16,27 +16,27 @@ export default function HierarchyTree({ leader, members, departmentSlug }: Hiera
           <a
             href={`/departamentos/${departmentSlug}/${leader.slug}`}
             className={cn(
-              'group block bg-white rounded-xl border border-amber-200 p-6 text-center min-w-[220px]',
+              'group block bg-white rounded-xl border border-emerald-200 p-6 text-center min-w-[220px]',
               'transition-all duration-300',
-              'hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-100 hover:border-amber-300',
+              'hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-100 hover:border-emerald-300',
               'animate-slide-up',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500'
+              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500'
             )}
           >
             {/* Avatar with gradient border */}
             <div className="relative mx-auto mb-3 size-14">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-500 to-teal-500" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-500" />
               <div className="absolute inset-[2px] rounded-full bg-white flex items-center justify-center">
-                <span className="text-amber-600 font-bold text-xl font-serif">
+                <span className="text-emerald-700 font-bold text-xl font-serif">
                   {leader.nome.charAt(0)}
                 </span>
               </div>
             </div>
-            <p className="text-gray-900 font-semibold font-serif text-lg group-hover:text-amber-600 transition-colors duration-200">
+            <p className="text-gray-900 font-semibold font-serif text-lg group-hover:text-emerald-700 transition-colors duration-200">
               {leader.nome}
             </p>
-            <p className="text-amber-600 text-sm mt-1">{leader.cargo}</p>
-            <span className="inline-flex items-center gap-1.5 mt-3 px-3 py-1 bg-amber-100 text-amber-700 text-xs rounded-full font-medium border border-amber-200">
+            <p className="text-emerald-700 text-sm mt-1">{leader.cargo}</p>
+            <span className="inline-flex items-center gap-1.5 mt-3 px-3 py-1 bg-emerald-100 text-emerald-800 text-xs rounded-full font-medium border border-emerald-200">
               <svg className="size-3" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
               </svg>
@@ -46,7 +46,7 @@ export default function HierarchyTree({ leader, members, departmentSlug }: Hiera
 
           {/* Connector line from leader to members */}
           {members.length > 0 && (
-            <div className="w-px h-10 bg-gradient-to-b from-amber-400 to-teal-400" />
+            <div className="w-px h-10 bg-gradient-to-b from-emerald-400 to-emerald-500" />
           )}
         </>
       )}
@@ -76,7 +76,7 @@ export default function HierarchyTree({ leader, members, departmentSlug }: Hiera
                   'hover:-translate-y-1 hover:shadow-lg hover:shadow-gray-100',
                   'hover:border-teal-300',
                   'animate-slide-up',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500'
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500'
                 )}
                 style={{ animationDelay: `${(idx + 1) * 80}ms` }}
               >
@@ -93,7 +93,7 @@ export default function HierarchyTree({ leader, members, departmentSlug }: Hiera
                   </div>
                 </div>
 
-                <p className="text-gray-900 font-medium text-sm group-hover:text-teal-600 transition-colors duration-200">
+                <p className="text-gray-900 font-medium text-sm group-hover:text-emerald-700 transition-colors duration-200">
                   {member.nome}
                 </p>
                 <p className="text-gray-500 text-xs mt-0.5">{member.cargo}</p>
@@ -101,12 +101,12 @@ export default function HierarchyTree({ leader, members, departmentSlug }: Hiera
                 {/* Status */}
                 <div className="mt-3">
                   {member.status === 'ativo' ? (
-                    <span className="inline-flex items-center gap-1 text-xs text-teal-600">
-                      <span className="size-1.5 bg-teal-500 rounded-full" />
+                    <span className="inline-flex items-center gap-1 text-xs text-emerald-700">
+                      <span className="size-1.5 bg-emerald-500 rounded-full" />
                       Ativo
                     </span>
                   ) : member.status === 'vaga' ? (
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-amber-100 text-amber-700 text-xs rounded-full border border-amber-200">
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-emerald-100 text-emerald-800 text-xs rounded-full border border-emerald-200">
                       Vaga
                     </span>
                   ) : (

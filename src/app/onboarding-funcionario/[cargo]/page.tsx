@@ -27,7 +27,7 @@ export default async function OnboardingCargoPage({
         <span>/</span>
         <a href="/onboarding-funcionario" className="transition-colors hover:text-gray-900">Onboarding Funcionario</a>
         <span>/</span>
-        <span className="text-amber-600">{data.cargo}</span>
+        <span className="text-emerald-700">{data.cargo}</span>
       </nav>
 
       {/* Header */}
@@ -68,7 +68,7 @@ export default async function OnboardingCargoPage({
       >
         <a
           href="/onboarding-funcionario"
-          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-amber-600 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-emerald-700 transition-colors"
         >
           <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

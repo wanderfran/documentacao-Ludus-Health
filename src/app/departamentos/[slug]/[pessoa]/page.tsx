@@ -31,7 +31,7 @@ export default async function PersonPage({
         <span>/</span>
         <a href={`/departamentos/${slug}`} className="transition-colors hover:text-gray-900">{department.nome}</a>
         <span>/</span>
-        <span className="text-amber-600">{person.nome}</span>
+        <span className="text-emerald-700">{person.nome}</span>
       </nav>
 
       {/* Profile Header */}
@@ -43,7 +43,7 @@ export default async function PersonPage({
         <div
           className={`size-16 rounded-2xl flex items-center justify-center text-2xl font-bold shrink-0 ${
             person.lider
-              ? 'bg-gradient-to-br from-amber-500 to-teal-500 text-white'
+              ? 'bg-gradient-to-br from-emerald-500 to-emerald-500 text-white'
               : 'bg-gray-100 text-gray-600 border-2 border-gray-200'
           }`}
         >
@@ -57,22 +57,22 @@ export default async function PersonPage({
           <div className="flex items-center gap-3 mt-2 flex-wrap">
             <a
               href={`/departamentos/${slug}`}
-              className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-sm transition-colors bg-gray-100 border border-gray-200 text-gray-600 hover:border-amber-300"
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-sm transition-colors bg-gray-100 border border-gray-200 text-gray-600 hover:border-emerald-300"
             >
               {department.nome}
             </a>
             {person.lider && (
-              <span className="px-2.5 py-1 text-xs rounded-full font-medium bg-amber-100 text-amber-700">
+              <span className="px-2.5 py-1 text-xs rounded-full font-medium bg-emerald-100 text-emerald-800">
                 Lider
               </span>
             )}
             {person.status === 'ativo' ? (
-              <span className="flex items-center gap-1.5 text-sm text-teal-600">
-                <span className="size-2 rounded-full bg-teal-500" />
+              <span className="flex items-center gap-1.5 text-sm text-emerald-700">
+                <span className="size-2 rounded-full bg-emerald-500" />
                 Ativo
               </span>
             ) : (
-              <span className="px-2.5 py-1 text-xs rounded-full bg-amber-100 text-amber-700">
+              <span className="px-2.5 py-1 text-xs rounded-full bg-emerald-100 text-emerald-800">
                 {person.status}
               </span>
             )}
@@ -91,7 +91,7 @@ export default async function PersonPage({
             id="process-heading"
             className="text-xl font-bold font-serif mb-4 flex items-center gap-2 text-gray-900"
           >
-            <svg className="size-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="size-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
             </svg>
             Processos por Frequencia

@@ -27,7 +27,7 @@ export default async function SquadDetailPage({
         <span>/</span>
         <a href="/squads" className="transition-colors hover:text-gray-900">Squads</a>
         <span>/</span>
-        <span className="text-amber-600">{squad.nome}</span>
+        <span className="text-emerald-700">{squad.nome}</span>
       </nav>
 
       {/* Header */}
@@ -52,7 +52,7 @@ export default async function SquadDetailPage({
       >
         <div className="flex items-center gap-3 mb-4">
           <span className="text-sm text-gray-500">Lider do Squad:</span>
-          <span className="text-sm font-semibold text-amber-600">{squad.lider}</span>
+          <span className="text-sm font-semibold text-emerald-700">{squad.lider}</span>
         </div>
 
         <h3
@@ -74,7 +74,7 @@ export default async function SquadDetailPage({
               <div
                 className={`size-10 rounded-full flex items-center justify-center text-sm font-bold ${
                   m.nome === squad.lider
-                    ? 'bg-gradient-to-br from-amber-500 to-teal-500 text-white'
+                    ? 'bg-gradient-to-br from-emerald-500 to-emerald-500 text-white'
                     : 'bg-gray-200 text-gray-600'
                 }`}
               >
@@ -85,7 +85,7 @@ export default async function SquadDetailPage({
                 <p className="text-xs text-gray-500">{m.cargo}</p>
               </div>
               {m.nome === squad.lider && (
-                <span className="ml-auto px-2 py-0.5 text-xs rounded-full bg-amber-100 text-amber-700">
+                <span className="ml-auto px-2 py-0.5 text-xs rounded-full bg-emerald-100 text-emerald-800">
                   Lider
                 </span>
               )}
@@ -114,7 +114,7 @@ export default async function SquadDetailPage({
       >
         <a
           href="/squads"
-          className="inline-flex items-center gap-2 text-sm transition-colors text-gray-500 hover:text-amber-600"
+          className="inline-flex items-center gap-2 text-sm transition-colors text-gray-500 hover:text-emerald-700"
         >
           <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

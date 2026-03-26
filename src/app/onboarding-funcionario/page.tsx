@@ -36,7 +36,7 @@ export default function OnboardingFuncionarioPage() {
       >
         <a href="/" className="transition-colors hover:text-gray-900">Inicio</a>
         <span>/</span>
-        <span className="text-amber-600">Onboarding Funcionario</span>
+        <span className="text-emerald-700">Onboarding Funcionario</span>
       </nav>
 
       {/* Header */}
@@ -69,15 +69,15 @@ export default function OnboardingFuncionarioPage() {
               <a
                 key={cargo.slug}
                 href={`/onboarding-funcionario/${cargo.slug}`}
-                className="group rounded-xl p-5 transition-all duration-300 hover:-translate-y-0.5 animate-slide-up bg-white border border-gray-200 hover:border-amber-300 hover:shadow-lg hover:shadow-amber-50"
+                className="group rounded-xl p-5 transition-all duration-300 hover:-translate-y-0.5 animate-slide-up bg-white border border-gray-200 hover:border-emerald-300 hover:shadow-lg hover:shadow-emerald-50"
                 style={{
                   animationDelay: `${150 + idx * 70}ms`,
                   animationFillMode: 'backwards',
                 }}
               >
-                <div className="size-10 rounded-lg flex items-center justify-center mb-3 bg-amber-50">
+                <div className="size-10 rounded-lg flex items-center justify-center mb-3 bg-emerald-50">
                   <svg
-                    className="size-5 text-amber-600"
+                    className="size-5 text-emerald-700"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -86,7 +86,7 @@ export default function OnboardingFuncionarioPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d={iconPath} />
                   </svg>
                 </div>
-                <h3 className="font-semibold transition-colors group-hover:text-amber-600 text-gray-900">
+                <h3 className="font-semibold transition-colors group-hover:text-emerald-700 text-gray-900">
                   {cargo.nome}
                 </h3>
                 <p className="text-sm mt-1 text-gray-500">

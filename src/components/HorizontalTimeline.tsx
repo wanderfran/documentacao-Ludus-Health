@@ -37,10 +37,10 @@ export default function HorizontalTimeline({ steps }: HorizontalTimelineProps) {
                       className={cn(
                         'size-10 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 border-2',
                         isActive
-                          ? 'bg-amber-500 border-amber-500 text-white shadow-lg shadow-amber-200'
+                          ? 'bg-emerald-500 border-emerald-500 text-white shadow-lg shadow-emerald-200'
                           : isPast
-                          ? 'bg-teal-500 border-teal-500 text-white'
-                          : 'bg-white border-gray-300 text-gray-500 group-hover:border-amber-400 group-hover:text-amber-600'
+                          ? 'bg-emerald-500 border-emerald-500 text-white'
+                          : 'bg-white border-gray-300 text-gray-500 group-hover:border-emerald-400 group-hover:text-emerald-700'
                       )}
                     >
                       {isPast ? (
@@ -57,7 +57,7 @@ export default function HorizontalTimeline({ steps }: HorizontalTimelineProps) {
                       <p
                         className={cn(
                           'text-xs font-medium leading-tight transition-colors',
-                          isActive ? 'text-amber-600' : 'text-gray-600 group-hover:text-gray-900'
+                          isActive ? 'text-emerald-700' : 'text-gray-600 group-hover:text-gray-900'
                         )}
                       >
                         {step.title.length > 25 ? step.title.slice(0, 25) + '...' : step.title}
@@ -72,7 +72,7 @@ export default function HorizontalTimeline({ steps }: HorizontalTimelineProps) {
                         className={cn(
                           'w-8 h-0.5 transition-colors',
                           parseInt(steps[idx + 1].number) <= parseInt(activeStep)
-                            ? 'bg-teal-500'
+                            ? 'bg-emerald-500'
                             : 'bg-gray-200'
                         )}
                       />
@@ -98,7 +98,7 @@ export default function HorizontalTimeline({ steps }: HorizontalTimelineProps) {
           <div className="flex items-start justify-between mb-4">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <span className="inline-flex items-center justify-center size-8 rounded-full bg-amber-100 text-amber-700 text-sm font-bold">
+                <span className="inline-flex items-center justify-center size-8 rounded-full bg-emerald-100 text-emerald-800 text-sm font-bold">
                   {activeStepData.number}
                 </span>
                 <h3 className="text-xl font-bold font-serif text-gray-900">
@@ -117,7 +117,7 @@ export default function HorizontalTimeline({ steps }: HorizontalTimelineProps) {
                     </span>
                   )}
                   {activeStepData.deadline && (
-                    <span className="inline-flex items-center gap-1.5 text-sm text-amber-600">
+                    <span className="inline-flex items-center gap-1.5 text-sm text-emerald-700">
                       <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -171,7 +171,7 @@ export default function HorizontalTimeline({ steps }: HorizontalTimelineProps) {
             <ul className="space-y-2 pt-4 border-t border-gray-100">
               {activeStepData.items.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-gray-700">
-                  <span className="text-teal-500 mt-0.5 shrink-0">
+                  <span className="text-emerald-500 mt-0.5 shrink-0">
                     <svg className="size-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>

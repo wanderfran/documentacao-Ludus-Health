@@ -32,7 +32,7 @@ export default async function DepartmentPage({
         <span>/</span>
         <span>Departamentos</span>
         <span>/</span>
-        <span className="text-amber-600">{department.nome}</span>
+        <span className="text-emerald-700">{department.nome}</span>
       </nav>
 
       {/* Header */}
@@ -42,9 +42,9 @@ export default async function DepartmentPage({
         </h1>
         <p className="text-gray-600">{department.descricao}</p>
         {department.lider && (
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-lg border border-amber-200 bg-amber-50">
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-lg border border-emerald-200 bg-emerald-50">
             <span className="text-sm text-gray-600">Lider:</span>
-            <span className="text-sm font-medium text-amber-600">{department.lider}</span>
+            <span className="text-sm font-medium text-emerald-700">{department.lider}</span>
           </div>
         )}
       </section>
@@ -60,7 +60,7 @@ export default async function DepartmentPage({
             id="org-heading"
             className="text-xl font-bold font-serif mb-6 flex items-center gap-2 text-gray-900"
           >
-            <svg className="size-5 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="size-5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
             </svg>
             Organograma

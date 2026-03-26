@@ -61,9 +61,9 @@ export default function HomePage() {
               href="/onboarding-cliente"
               className="group block bg-white rounded-2xl p-6 border border-gray-100 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200"
             >
-              <div className="size-12 rounded-xl bg-amber-50 flex items-center justify-center mb-4">
+              <div className="size-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-amber-600"
+                  className="w-6 h-6 text-emerald-700"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -76,7 +76,7 @@ export default function HomePage() {
                   />
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-amber-600 transition-colors">
+              <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors">
                 Onboarding de Cliente
               </h3>
               <p className="text-sm text-gray-600">
@@ -89,9 +89,9 @@ export default function HomePage() {
               href="/onboarding-funcionario"
               className="group block bg-white rounded-2xl p-6 border border-gray-100 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200"
             >
-              <div className="size-12 rounded-xl bg-teal-50 flex items-center justify-center mb-4">
+              <div className="size-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
                 <svg
-                  className="w-6 h-6 text-teal-600"
+                  className="w-6 h-6 text-emerald-700"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -104,7 +104,7 @@ export default function HomePage() {
                   />
                 </svg>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-teal-600 transition-colors">
+              <h3 className="font-semibold text-gray-900 mb-1 group-hover:text-emerald-700 transition-colors">
                 Onboarding de Funcionario
               </h3>
               <p className="text-sm text-gray-600">

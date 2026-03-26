@@ -23,7 +23,7 @@ export default function Timeline({ steps }: TimelineProps) {
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-amber-400 via-amber-300 to-gray-200" />
+      <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-400 via-emerald-300 to-gray-200" />
 
       <div className="flex flex-col gap-4">
         {steps.map((step, idx) => {
@@ -39,7 +39,7 @@ export default function Timeline({ steps }: TimelineProps) {
                 className={cn(
                   'absolute left-[14px] size-6 rounded-full border-2 flex items-center justify-center text-[11px] font-bold transition-all duration-300',
                   isExpanded
-                    ? 'bg-amber-500 border-amber-500 text-white shadow-md shadow-amber-200'
+                    ? 'bg-emerald-500 border-emerald-500 text-white shadow-md shadow-emerald-200'
                     : 'bg-white border-gray-300 text-gray-500'
                 )}
               >
@@ -50,9 +50,9 @@ export default function Timeline({ steps }: TimelineProps) {
                 onClick={() => toggleStep(step.number)}
                 className={cn(
                   'w-full text-left rounded-xl border p-5 transition-all duration-300',
-                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500',
+                  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500',
                   isExpanded
-                    ? 'bg-white border-amber-200 shadow-lg shadow-amber-50'
+                    ? 'bg-white border-emerald-200 shadow-lg shadow-emerald-50'
                     : 'bg-gray-50 border-gray-200 hover:border-gray-300 hover:bg-white'
                 )}
               >
@@ -72,7 +72,7 @@ export default function Timeline({ steps }: TimelineProps) {
                           </span>
                         )}
                         {step.deadline && (
-                          <span className="inline-flex items-center gap-1.5 text-xs text-amber-600">
+                          <span className="inline-flex items-center gap-1.5 text-xs text-emerald-700">
                             <svg className="size-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -85,7 +85,7 @@ export default function Timeline({ steps }: TimelineProps) {
                   <svg
                     className={cn(
                       'size-4 text-gray-400 transition-transform duration-300 shrink-0 ml-4',
-                      isExpanded && 'rotate-180 text-amber-500'
+                      isExpanded && 'rotate-180 text-emerald-500'
                     )}
                     fill="none"
                     viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ export default function Timeline({ steps }: TimelineProps) {
                               key={i}
                               className="text-sm text-gray-700 flex items-start gap-2.5"
                             >
-                              <span className="text-amber-500 mt-0.5 shrink-0">
+                              <span className="text-emerald-500 mt-0.5 shrink-0">
                                 <svg className="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                                 </svg>
@@ -132,7 +132,7 @@ export default function Timeline({ steps }: TimelineProps) {
 
               {/* Completion marker at end */}
               {idx === steps.length - 1 && (
-                <div className="absolute left-[11px] -bottom-6 size-8 rounded-full bg-gradient-to-br from-teal-500 to-teal-400 border-2 border-teal-400 flex items-center justify-center shadow-md shadow-teal-200">
+                <div className="absolute left-[11px] -bottom-6 size-8 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-500 border-2 border-emerald-500 flex items-center justify-center shadow-md shadow-emerald-200">
                   <svg className="size-4 text-white" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>

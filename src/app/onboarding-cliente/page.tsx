@@ -27,7 +27,7 @@ export default function OnboardingClientePage() {
       >
         <a href="/" className="transition-colors hover:text-gray-900">Inicio</a>
         <span>/</span>
-        <span className="text-amber-600">Onboarding Cliente</span>
+        <span className="text-emerald-700">Onboarding Cliente</span>
       </nav>
 
       {/* Header */}
@@ -35,7 +35,7 @@ export default function OnboardingClientePage() {
         className="mb-10 animate-slide-up"
         style={{ animationDelay: '50ms', animationFillMode: 'backwards' }}
       >
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-sm mb-4 bg-teal-50 border-teal-200 text-teal-700">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-sm mb-4 bg-emerald-50 border-emerald-200 text-emerald-800">
           <svg className="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>

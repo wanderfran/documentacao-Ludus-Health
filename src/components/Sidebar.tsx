@@ -19,29 +19,29 @@ export default function Sidebar({ departments }: SidebarProps) {
   const linkClass = (href: string) =>
     cn(
       'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all duration-200',
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300',
       isActive(href)
-        ? 'bg-amber-50 text-amber-700 font-medium border-l-2 border-amber-500'
-        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+        ? 'bg-emerald-800 text-white font-medium'
+        : 'text-emerald-100 hover:text-white hover:bg-emerald-800/50'
     );
 
   const sidebarContent = (
     <>
       {/* Logo */}
-      <div className="px-5 py-6 border-b border-gray-200">
+      <div className="px-5 py-6 border-b border-emerald-800">
         <a
           href="/"
           className="flex items-center gap-3 group"
           onClick={() => setMobileOpen(false)}
         >
-          <div className="size-9 rounded-lg bg-gradient-to-br from-amber-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm shadow-lg transition-transform duration-200 group-hover:scale-105">
+          <div className="size-9 rounded-lg bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center text-emerald-900 font-bold text-sm shadow-lg transition-transform duration-200 group-hover:scale-105">
             L
           </div>
           <div>
-            <h1 className="text-gray-900 font-bold text-lg leading-tight font-serif">
+            <h1 className="text-white font-bold text-lg leading-tight font-serif">
               Ludus Health
             </h1>
-            <p className="text-gray-500 text-xs tracking-wide uppercase">
+            <p className="text-emerald-300 text-xs tracking-wide uppercase">
               Documentacao Interna
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function Sidebar({ departments }: SidebarProps) {
           {/* Departamentos */}
           <li>
             <div className="mt-4 mb-1 px-3">
-              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400">
+              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-emerald-400">
                 Departamentos
               </span>
             </div>
@@ -71,10 +71,10 @@ export default function Sidebar({ departments }: SidebarProps) {
               onClick={() => setDeptOpen(!deptOpen)}
               className={cn(
                 'w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition-all duration-200',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300',
                 isActivePrefix('/departamentos')
-                  ? 'text-amber-700'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                  ? 'text-white'
+                  : 'text-emerald-100 hover:text-white hover:bg-emerald-800/50'
               )}
               aria-expanded={deptOpen}
             >
@@ -101,7 +101,7 @@ export default function Sidebar({ departments }: SidebarProps) {
                 deptOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
               )}
             >
-              <ul className="overflow-hidden ml-5 mt-1 border-l border-gray-200 pl-3 flex flex-col gap-0.5">
+              <ul className="overflow-hidden ml-5 mt-1 border-l border-emerald-700 pl-3 flex flex-col gap-0.5">
                 {departments.map((dept, i) => (
                   <li
                     key={dept.slug}
@@ -124,7 +124,7 @@ export default function Sidebar({ departments }: SidebarProps) {
           {/* Section: Processos */}
           <li className="mt-4">
             <div className="mb-1 px-3">
-              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400">
+              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-emerald-400">
                 Processos
               </span>
             </div>
@@ -160,8 +160,8 @@ export default function Sidebar({ departments }: SidebarProps) {
       </nav>
 
       {/* Footer */}
-      <div className="px-5 py-4 border-t border-gray-200">
-        <p className="text-xs text-gray-500 text-center tracking-wide">
+      <div className="px-5 py-4 border-t border-emerald-800">
+        <p className="text-xs text-emerald-400 text-center tracking-wide">
           Ludus Health &copy; 2025
         </p>
       </div>
@@ -175,9 +175,9 @@ export default function Sidebar({ departments }: SidebarProps) {
         onClick={() => setMobileOpen(!mobileOpen)}
         className={cn(
           'fixed top-4 left-4 z-50 p-2.5 rounded-lg lg:hidden',
-          'bg-white shadow-md text-gray-700 border border-gray-200',
-          'transition-all duration-200 hover:bg-gray-50',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500'
+          'bg-emerald-900 shadow-md text-white border border-emerald-800',
+          'transition-all duration-200 hover:bg-emerald-800',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300'
         )}
         aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
       >
@@ -203,7 +203,7 @@ export default function Sidebar({ departments }: SidebarProps) {
       <aside
         className={cn(
           'fixed top-0 left-0 h-screen w-64 z-40 flex flex-col',
-          'bg-white border-r border-gray-200',
+          'bg-emerald-900',
           'transition-transform duration-300 ease-out',
           mobileOpen ? 'translate-x-0' : '-translate-x-full',
           'lg:translate-x-0'
