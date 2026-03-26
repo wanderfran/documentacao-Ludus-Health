@@ -1,29 +1,30 @@
 /**
  * Simple markdown to HTML converter.
  * Handles headings, bold, italic, links, lists, tables, code blocks, and paragraphs.
+ * Light theme version.
  */
 export function markdownToHtml(markdown: string): string {
   let html = markdown;
 
   // Code blocks (```)
   html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_match, _lang, code) => {
-    return `<pre class="bg-slate-900 border border-slate-700 rounded-lg p-4 overflow-x-auto my-4"><code>${escapeHtml(code.trim())}</code></pre>`;
+    return `<pre class="bg-gray-900 border border-gray-700 rounded-lg p-4 overflow-x-auto my-4 text-gray-100"><code>${escapeHtml(code.trim())}</code></pre>`;
   });
 
   // Inline code
-  html = html.replace(/`([^`]+)`/g, '<code class="bg-slate-700 px-1.5 py-0.5 rounded text-blue-300 text-sm">$1</code>');
+  html = html.replace(/`([^`]+)`/g, '<code class="bg-gray-100 px-1.5 py-0.5 rounded text-gray-700 text-sm border border-gray-200">$1</code>');
 
   // Tables
   html = html.replace(/(?:^|\n)(\|.+\|)\n(\|[-| :]+\|)\n((?:\|.+\|\n?)+)/g, (_match, header, _separator, body) => {
     const headerCells = header.split('|').filter((c: string) => c.trim());
-    const headerRow = headerCells.map((c: string) => `<th class="px-4 py-2 text-left text-slate-300 font-semibold border-b border-slate-600">${c.trim()}</th>`).join('');
+    const headerRow = headerCells.map((c: string) => `<th class="px-4 py-3 text-left text-gray-900 font-semibold border-b border-gray-200 bg-gray-50">${c.trim()}</th>`).join('');
 
     const bodyRows = body.trim().split('\n').map((row: string) => {
       const cells = row.split('|').filter((c: string) => c.trim());
-      return `<tr>${cells.map((c: string) => `<td class="px-4 py-2 text-slate-400 border-b border-slate-700">${c.trim()}</td>`).join('')}</tr>`;
+      return `<tr class="hover:bg-gray-50">${cells.map((c: string) => `<td class="px-4 py-3 text-gray-700 border-b border-gray-100">${c.trim()}</td>`).join('')}</tr>`;
     }).join('');
 
-    return `<div class="overflow-x-auto my-4"><table class="w-full border-collapse"><thead><tr>${headerRow}</tr></thead><tbody>${bodyRows}</tbody></table></div>`;
+    return `<div class="overflow-x-auto my-4 rounded-lg border border-gray-200"><table class="w-full border-collapse"><thead><tr>${headerRow}</tr></thead><tbody>${bodyRows}</tbody></table></div>`;
   });
 
   // Process line by line for block elements
@@ -38,22 +39,22 @@ export function markdownToHtml(markdown: string): string {
     // Headings
     if (line.startsWith('#### ')) {
       if (inList) { processed.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-      processed.push(`<h4 class="text-md font-semibold text-slate-200 mt-6 mb-2">${processInline(line.slice(5))}</h4>`);
+      processed.push(`<h4 class="text-md font-semibold text-gray-900 mt-6 mb-2">${processInline(line.slice(5))}</h4>`);
       continue;
     }
     if (line.startsWith('### ')) {
       if (inList) { processed.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-      processed.push(`<h3 class="text-lg font-semibold text-slate-100 mt-8 mb-3">${processInline(line.slice(4))}</h3>`);
+      processed.push(`<h3 class="text-lg font-semibold text-gray-900 mt-8 mb-3">${processInline(line.slice(4))}</h3>`);
       continue;
     }
     if (line.startsWith('## ')) {
       if (inList) { processed.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-      processed.push(`<h2 class="text-xl font-bold text-white mt-10 mb-4 pb-2 border-b border-slate-700">${processInline(line.slice(3))}</h2>`);
+      processed.push(`<h2 class="text-xl font-bold text-gray-900 mt-10 mb-4 pb-2 border-b border-gray-200">${processInline(line.slice(3))}</h2>`);
       continue;
     }
     if (line.startsWith('# ')) {
       if (inList) { processed.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-      processed.push(`<h1 class="text-2xl font-bold text-white mt-8 mb-4">${processInline(line.slice(2))}</h1>`);
+      processed.push(`<h1 class="text-2xl font-bold text-gray-900 mt-8 mb-4">${processInline(line.slice(2))}</h1>`);
       continue;
     }
 
@@ -61,7 +62,7 @@ export function markdownToHtml(markdown: string): string {
     if (line.match(/^[-*] /)) {
       if (!inList || listType !== 'ul') {
         if (inList) processed.push(listType === 'ul' ? '</ul>' : '</ol>');
-        processed.push('<ul class="list-disc list-inside space-y-1 my-3 text-slate-300">');
+        processed.push('<ul class="list-disc list-inside space-y-2 my-3 text-gray-700">');
         inList = true;
         listType = 'ul';
       }
@@ -73,7 +74,7 @@ export function markdownToHtml(markdown: string): string {
     if (line.match(/^\d+\. /)) {
       if (!inList || listType !== 'ol') {
         if (inList) processed.push(listType === 'ul' ? '</ul>' : '</ol>');
-        processed.push('<ol class="list-decimal list-inside space-y-1 my-3 text-slate-300">');
+        processed.push('<ol class="list-decimal list-inside space-y-2 my-3 text-gray-700">');
         inList = true;
         listType = 'ol';
       }
@@ -90,7 +91,7 @@ export function markdownToHtml(markdown: string): string {
 
     // Horizontal rule
     if (line.match(/^---+$/)) {
-      processed.push('<hr class="border-slate-700 my-6" />');
+      processed.push('<hr class="border-gray-200 my-6" />');
       continue;
     }
 
@@ -108,7 +109,7 @@ export function markdownToHtml(markdown: string): string {
 
     // Paragraph
     if (inList) { processed.push(listType === 'ul' ? '</ul>' : '</ol>'); inList = false; }
-    processed.push(`<p class="text-slate-300 my-2 leading-relaxed">${processInline(line)}</p>`);
+    processed.push(`<p class="text-gray-600 my-2 leading-relaxed">${processInline(line)}</p>`);
   }
 
   if (inList) {
@@ -120,13 +121,13 @@ export function markdownToHtml(markdown: string): string {
 
 function processInline(text: string): string {
   // Bold + Italic
-  let result = text.replace(/\*\*\*(.+?)\*\*\*/g, '<strong class="text-white"><em>$1</em></strong>');
+  let result = text.replace(/\*\*\*(.+?)\*\*\*/g, '<strong class="text-gray-900"><em>$1</em></strong>');
   // Bold
-  result = result.replace(/\*\*(.+?)\*\*/g, '<strong class="text-white">$1</strong>');
+  result = result.replace(/\*\*(.+?)\*\*/g, '<strong class="text-gray-900">$1</strong>');
   // Italic
   result = result.replace(/\*(.+?)\*/g, '<em>$1</em>');
   // Links
-  result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-400 hover:text-blue-300 underline">$1</a>');
+  result = result.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-amber-600 hover:text-amber-700 underline">$1</a>');
   // Em dash
   result = result.replace(/ — /g, ' &mdash; ');
   return result;
