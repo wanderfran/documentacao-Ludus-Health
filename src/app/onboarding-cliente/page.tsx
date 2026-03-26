@@ -1,6 +1,6 @@
 import { getOnboardingSteps } from '@/lib/content';
 import { parseTimelineFromMarkdown } from '@/lib/parsers';
-import Timeline from '@/components/Timeline';
+import HorizontalTimeline from '@/components/HorizontalTimeline';
 
 export default function OnboardingClientePage() {
   const data = getOnboardingSteps();
@@ -53,7 +53,7 @@ export default function OnboardingClientePage() {
         style={{ animationDelay: '150ms', animationFillMode: 'backwards' }}
         aria-label="Etapas do onboarding"
       >
-        <Timeline steps={steps} />
+        <HorizontalTimeline steps={steps} />
       </section>
     </main>
   );
