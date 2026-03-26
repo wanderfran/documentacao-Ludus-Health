@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { DM_Sans, Playfair_Display } from 'next/font/google';
 import './globals.css';
-import Sidebar from '@/components/Sidebar';
+import { LayoutWrapper } from '@/components/LayoutWrapper';
 import { getDepartments } from '@/lib/content';
 
 const dmSans = DM_Sans({
@@ -35,19 +35,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${dmSans.variable} ${playfair.variable}`}>
       <head>
-        <meta name="theme-color" content="#0a0f1c" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
       <body className="min-h-screen bg-background text-foreground font-sans antialiased">
-        {/* Grain texture overlay */}
-        <div className="grain-overlay" aria-hidden="true" />
-
-        <Sidebar departments={departments} />
-
-        <main className="lg:ml-64 min-h-screen">
-          <div className="mx-auto max-w-4xl px-6 py-8 lg:py-12">
-            {children}
-          </div>
-        </main>
+        <LayoutWrapper departments={departments}>{children}</LayoutWrapper>
       </body>
     </html>
   );

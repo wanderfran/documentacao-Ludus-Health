@@ -19,29 +19,29 @@ export default function Sidebar({ departments }: SidebarProps) {
   const linkClass = (href: string) =>
     cn(
       'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all duration-200',
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-sidebar',
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500',
       isActive(href)
-        ? 'bg-primary/10 text-primary font-medium border-l-2 border-primary shadow-[inset_0_0_20px_-12px] shadow-primary/20'
-        : 'text-sidebar-foreground hover:text-foreground hover:bg-muted/60'
+        ? 'bg-amber-50 text-amber-700 font-medium border-l-2 border-amber-500'
+        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
     );
 
   const sidebarContent = (
     <>
       {/* Logo */}
-      <div className="px-5 py-6 border-b border-sidebar-border">
+      <div className="px-5 py-6 border-b border-gray-200">
         <a
           href="/"
           className="flex items-center gap-3 group"
           onClick={() => setMobileOpen(false)}
         >
-          <div className="size-9 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground font-bold text-sm shadow-lg shadow-primary/20 transition-transform duration-200 group-hover:scale-105">
+          <div className="size-9 rounded-lg bg-gradient-to-br from-amber-500 to-teal-500 flex items-center justify-center text-white font-bold text-sm shadow-lg transition-transform duration-200 group-hover:scale-105">
             L
           </div>
           <div>
-            <h1 className="text-foreground font-bold text-lg leading-tight font-serif">
+            <h1 className="text-gray-900 font-bold text-lg leading-tight font-serif">
               Ludus Health
             </h1>
-            <p className="text-muted-foreground text-xs tracking-wide uppercase">
+            <p className="text-gray-500 text-xs tracking-wide uppercase">
               Documentacao Interna
             </p>
           </div>
@@ -63,7 +63,7 @@ export default function Sidebar({ departments }: SidebarProps) {
           {/* Departamentos */}
           <li>
             <div className="mt-4 mb-1 px-3">
-              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-muted-foreground">
+              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400">
                 Departamentos
               </span>
             </div>
@@ -71,10 +71,10 @@ export default function Sidebar({ departments }: SidebarProps) {
               onClick={() => setDeptOpen(!deptOpen)}
               className={cn(
                 'w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm transition-all duration-200',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500',
                 isActivePrefix('/departamentos')
-                  ? 'text-primary'
-                  : 'text-sidebar-foreground hover:text-foreground hover:bg-muted/60'
+                  ? 'text-amber-700'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
               )}
               aria-expanded={deptOpen}
             >
@@ -101,7 +101,7 @@ export default function Sidebar({ departments }: SidebarProps) {
                 deptOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
               )}
             >
-              <ul className="overflow-hidden ml-5 mt-1 border-l border-sidebar-border pl-3 flex flex-col gap-0.5">
+              <ul className="overflow-hidden ml-5 mt-1 border-l border-gray-200 pl-3 flex flex-col gap-0.5">
                 {departments.map((dept, i) => (
                   <li
                     key={dept.slug}
@@ -124,7 +124,7 @@ export default function Sidebar({ departments }: SidebarProps) {
           {/* Section: Processos */}
           <li className="mt-4">
             <div className="mb-1 px-3">
-              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-muted-foreground">
+              <span className="text-[10px] font-semibold tracking-[0.15em] uppercase text-gray-400">
                 Processos
               </span>
             </div>
@@ -160,8 +160,8 @@ export default function Sidebar({ departments }: SidebarProps) {
       </nav>
 
       {/* Footer */}
-      <div className="px-5 py-4 border-t border-sidebar-border">
-        <p className="text-xs text-muted-foreground text-center tracking-wide">
+      <div className="px-5 py-4 border-t border-gray-200">
+        <p className="text-xs text-gray-500 text-center tracking-wide">
           Ludus Health &copy; 2025
         </p>
       </div>
@@ -175,9 +175,9 @@ export default function Sidebar({ departments }: SidebarProps) {
         onClick={() => setMobileOpen(!mobileOpen)}
         className={cn(
           'fixed top-4 left-4 z-50 p-2.5 rounded-lg lg:hidden',
-          'bg-card/90 backdrop-blur-md text-foreground border border-border',
-          'transition-all duration-200 hover:bg-muted',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring'
+          'bg-white shadow-md text-gray-700 border border-gray-200',
+          'transition-all duration-200 hover:bg-gray-50',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500'
         )}
         aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
       >
@@ -193,7 +193,7 @@ export default function Sidebar({ departments }: SidebarProps) {
       {/* Mobile overlay */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 bg-background/70 backdrop-blur-sm z-30 lg:hidden animate-fade-in"
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 lg:hidden animate-fade-in"
           onClick={() => setMobileOpen(false)}
           aria-hidden="true"
         />
@@ -203,7 +203,7 @@ export default function Sidebar({ departments }: SidebarProps) {
       <aside
         className={cn(
           'fixed top-0 left-0 h-screen w-64 z-40 flex flex-col',
-          'bg-sidebar/95 backdrop-blur-xl border-r border-sidebar-border',
+          'bg-white border-r border-gray-200',
           'transition-transform duration-300 ease-out',
           mobileOpen ? 'translate-x-0' : '-translate-x-full',
           'lg:translate-x-0'

@@ -106,6 +106,31 @@ export function getDepartmentBySlug(slug: string): Department | null {
   };
 }
 
+export interface DepartmentStats {
+  documentCount: number;
+}
+
+export interface DepartmentWithStats extends Department, DepartmentStats {}
+
+export function getDepartmentStats(deptSlug: string): DepartmentStats {
+  const deptDir = path.join(contentDir, 'departamentos', deptSlug);
+  if (!fs.existsSync(deptDir)) return { documentCount: 0 };
+
+  const files = fs.readdirSync(deptDir).filter(
+    (name) => name.endsWith('.md') && !name.startsWith('_')
+  );
+
+  return { documentCount: files.length };
+}
+
+export function getDepartmentsWithStats(): DepartmentWithStats[] {
+  const departments = getDepartments();
+  return departments.map((dept) => ({
+    ...dept,
+    ...getDepartmentStats(dept.slug),
+  }));
+}
+
 // ---- PEOPLE ----
 
 export function getPeopleByDepartment(deptSlug: string): Person[] {

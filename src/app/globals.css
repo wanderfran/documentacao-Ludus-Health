@@ -2,46 +2,46 @@
 
 /* ============================================================
    LUDUS HEALTH DESIGN SYSTEM
-   Luxury medical/clinical aesthetic
+   Modern light theme - Agilify inspired
    ============================================================ */
 
 @theme inline {
   /* ---- Background & Surface ---- */
-  --color-background: hsl(222, 47%, 6%);
-  --color-foreground: hsl(210, 20%, 95%);
+  --color-background: hsl(0, 0%, 99%);
+  --color-foreground: hsl(220, 20%, 15%);
 
-  --color-card: hsl(222, 30%, 10%);
-  --color-card-foreground: hsl(210, 20%, 95%);
+  --color-card: hsl(0, 0%, 100%);
+  --color-card-foreground: hsl(220, 20%, 15%);
 
-  /* ---- Primary: warm gold ---- */
-  --color-primary: hsl(38, 55%, 55%);
-  --color-primary-foreground: hsl(222, 47%, 6%);
+  /* ---- Primary: warm gold (brand) ---- */
+  --color-primary: hsl(38, 55%, 50%);
+  --color-primary-foreground: hsl(0, 0%, 100%);
 
   /* ---- Secondary: teal ---- */
-  --color-secondary: hsl(168, 76%, 46%);
-  --color-secondary-foreground: hsl(222, 47%, 6%);
+  --color-secondary: hsl(168, 65%, 40%);
+  --color-secondary-foreground: hsl(0, 0%, 100%);
 
   /* ---- Muted ---- */
-  --color-muted: hsl(222, 20%, 15%);
-  --color-muted-foreground: hsl(215, 15%, 55%);
+  --color-muted: hsl(220, 14%, 96%);
+  --color-muted-foreground: hsl(220, 9%, 46%);
 
   /* ---- Accent (gold variant) ---- */
   --color-accent: hsl(38, 50%, 48%);
-  --color-accent-foreground: hsl(210, 20%, 95%);
+  --color-accent-foreground: hsl(0, 0%, 100%);
 
   /* ---- Border & Ring ---- */
-  --color-border: hsl(222, 20%, 15%);
-  --color-ring: hsl(38, 55%, 55%);
+  --color-border: hsl(220, 13%, 91%);
+  --color-ring: hsl(38, 55%, 50%);
 
   /* ---- Destructive ---- */
   --color-destructive: hsl(0, 72%, 51%);
-  --color-destructive-foreground: hsl(210, 20%, 95%);
+  --color-destructive-foreground: hsl(0, 0%, 100%);
 
   /* ---- Sidebar surface ---- */
-  --color-sidebar: hsl(222, 35%, 8%);
-  --color-sidebar-foreground: hsl(215, 15%, 55%);
-  --color-sidebar-active: hsl(38, 55%, 55%);
-  --color-sidebar-border: hsl(222, 20%, 13%);
+  --color-sidebar: hsl(0, 0%, 100%);
+  --color-sidebar-foreground: hsl(220, 9%, 46%);
+  --color-sidebar-active: hsl(38, 55%, 50%);
+  --color-sidebar-border: hsl(220, 13%, 91%);
 
   /* ---- Typography ---- */
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
@@ -51,6 +51,10 @@
   --animate-fade-in: fade-in 0.5s ease-out both;
   --animate-slide-up: slide-up 0.5s ease-out both;
   --animate-slide-in: slide-in 0.4s ease-out both;
+
+  /* ---- Shadows ---- */
+  --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
 }
 
 /* ============================================================
@@ -128,16 +132,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ---- Grain texture overlay ---- */
+/* ---- Grain texture overlay (hidden for light theme) ---- */
 .grain-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
+  display: none;
 }
 
 /* ---- Heading typography ---- */
@@ -148,8 +145,8 @@ h1, h2, h3 {
 
 /* ---- Selection colors (gold accent) ---- */
 ::selection {
-  background: hsla(38, 55%, 55%, 0.3);
-  color: hsl(210, 20%, 95%);
+  background: hsla(38, 55%, 50%, 0.2);
+  color: hsl(220, 20%, 15%);
 }
 
 /* ============================================================
@@ -158,11 +155,11 @@ h1, h2, h3 {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-muted) var(--color-background);
+  scrollbar-color: hsl(220, 13%, 85%) var(--color-background);
 }
 
 *::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 
 *::-webkit-scrollbar-track {
@@ -170,34 +167,39 @@ h1, h2, h3 {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: var(--color-muted);
+  background: hsl(220, 13%, 85%);
   border-radius: 9999px;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: var(--color-muted-foreground);
+  background: hsl(220, 13%, 75%);
 }
 
 /* ============================================================
-   GLASSMORPHISM CARD UTILITY
+   CARD UTILITIES
    ============================================================ */
 
 .glass-card {
-  background: hsla(222, 30%, 10%, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--color-card);
   border: 1px solid var(--color-border);
-  border-radius: 12px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.2s ease;
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
 }
 
 /* ============================================================
-   GLOW EFFECTS
+   SHADOW UTILITIES
    ============================================================ */
 
-.glow-gold {
-  box-shadow: 0 0 40px -12px hsla(38, 55%, 55%, 0.15);
+.shadow-card {
+  box-shadow: var(--shadow-card);
 }
 
-.glow-teal {
-  box-shadow: 0 0 40px -12px hsla(168, 76%, 46%, 0.12);
+.shadow-card-hover {
+  box-shadow: var(--shadow-card-hover);
 }
